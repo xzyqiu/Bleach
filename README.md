@@ -14,16 +14,11 @@ It erases digital fingerprints from files such as photos, videos, PDFs, and more
 Metadata is the invisible ink of the digital world  your location, camera model, software name, and even your device ID can hide in it. Bleach purges that data, leaving only what’s essential.
 
 ## Supported types:
-
-    image
-
-    pdf
-
-    video
-
-    audio
-
-    raw
+- image
+- pdf
+- video
+- audio
+- raw
 
 ## Installation
 
