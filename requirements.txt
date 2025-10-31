@@ -1,0 +1,6 @@
+Pillow
+python-magic
+exifread
+pypdf
+python-docx
+xattr

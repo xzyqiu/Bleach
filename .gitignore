@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.log
+*.tmp
+*.scrubbed.*
+.env
+.DS_Store
