@@ -4,3 +4,4 @@ exifread
 pypdf
 python-docx
 xattr
+pytest

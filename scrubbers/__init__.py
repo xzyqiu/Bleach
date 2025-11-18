@@ -4,4 +4,6 @@ from .scrubbers import (
     delete_video,
     delete_audio,
     delete_raw_metadata,
+    delete_docx,
+    scrub_text_comments,
 )

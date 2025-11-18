@@ -8,6 +8,8 @@ from scrubbers import (
     delete_audio,
     delete_raw_metadata,
     scrub_image,
+    delete_docx,
+    scrub_text_comments,
 )
 
 def main():
@@ -38,6 +40,15 @@ def main():
     raw_parser = subparsers.add_parser("raw", help="Scrub metadata from a raw camera file")
     raw_parser.add_argument("input", type=Path, help="Path to input raw image (e.g., .NEF, .CR2, .ARW)")
 
+    docx_parser = subparsers.add_parser("docx", help="Scrub metadata from a Microsoft Word .docx file")
+    docx_parser.add_argument("input", type=Path, help="Path to input .docx file")
+    docx_parser.add_argument("output", type=Path, nargs="?", help="Output path (optional)")
+
+    text_parser = subparsers.add_parser("text", help="Remove comment lines from a text file")
+    text_parser.add_argument("input", type=Path, help="Path to input text file")
+    text_parser.add_argument("output", type=Path, nargs="?", help="Output path (optional)")
+    text_parser.add_argument("--prefixes", type=str, help="Comma-separated comment prefixes (default: '#,//,;')")
+
     args = parser.parse_args()
 
     try:
@@ -62,6 +73,17 @@ def main():
         elif args.type == "raw":
             delete_raw_metadata(args.input)
             print(f"RAW file scrubbed: {args.input}")
+
+        elif args.type == "docx":
+            out = args.output or args.input.with_name(args.input.stem + "_clean" + args.input.suffix)
+            delete_docx(args.input, out)
+            print(f"DOCX scrubbed: {out}")
+
+        elif args.type == "text":
+            out = args.output or args.input.with_name(args.input.stem + "_clean" + args.input.suffix)
+            prefixes = args.prefixes.split(",") if args.prefixes else None
+            scrub_text_comments(args.input, out, prefixes)
+            print(f"Text scrubbed: {out}")
 
         else:
             parser.print_help()
