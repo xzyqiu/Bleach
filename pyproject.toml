@@ -9,10 +9,10 @@ description = "Privacy-oriented metadata scrubber for various file types"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "xzyqiu", email = "xzyqiu@users.noreply.github.com"}
+    {name = "xzyqiu", email = "selimhocaoglu9@gmail.com"}
 ]
 maintainers = [
-    {name = "xzyqiu", email = "xzyqiu@users.noreply.github.com"}
+    {name = "xzyqiu", email = "selimhocaoglu9@gmail.com"}
 ]
 keywords = ["metadata", "privacy", "exif", "scrubber", "anonymity", "security"]
 classifiers = [
