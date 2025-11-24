@@ -26,13 +26,7 @@ Metadata is the invisible ink of the digital world—your location, camera model
 
 ## 📦 Installation
 
-### Option 1: Install from PyPI (Recommended)
-
-```bash
-pip install bleach-metadata
-```
-
-### Option 2: Install from Source
+### Install from Source
 
 ```bash
 git clone https://github.com/xzyqiu/Bleach.git
