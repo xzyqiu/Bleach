@@ -1,7 +1,15 @@
-Pillow
-python-magic
-exifread
-pypdf
-python-docx
-xattr
-pytest
+# Core dependencies
+Pillow>=9.0.0
+python-magic>=0.4.24
+exifread>=3.0.0
+pypdf>=3.0.0
+python-docx>=0.8.11
+tqdm>=4.62.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=3.0.0
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.950
+isort>=5.10.0

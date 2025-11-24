@@ -1,0 +1,114 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bleach-metadata"
+version = "1.0.0"
+description = "Privacy-oriented metadata scrubber for various file types"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "xzyqiu", email = "xzyqiu@users.noreply.github.com"}
+]
+maintainers = [
+    {name = "xzyqiu", email = "xzyqiu@users.noreply.github.com"}
+]
+keywords = ["metadata", "privacy", "exif", "scrubber", "anonymity", "security"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Multimedia",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "Pillow>=9.0.0",
+    "python-magic>=0.4.24",
+    "exifread>=3.0.0",
+    "pypdf>=3.0.0",
+    "python-docx>=0.8.11",
+    "tqdm>=4.62.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+    "isort>=5.10.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/xzyqiu/Bleach"
+Documentation = "https://github.com/xzyqiu/Bleach#readme"
+Repository = "https://github.com/xzyqiu/Bleach"
+"Bug Tracker" = "https://github.com/xzyqiu/Bleach/issues"
+
+[project.scripts]
+bleach = "cli:main"
+
+[tool.setuptools]
+packages = ["scrubbers"]
+
+[tool.setuptools.package-data]
+scrubbers = ["py.typed"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --cov=scrubbers --cov-report=term-missing"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["scrubbers"]
+omit = ["tests/*", "**/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
